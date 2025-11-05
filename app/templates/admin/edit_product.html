@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{ product.name }} — {{ company_name.split()[0] if company_name else 'Growe' }} Admin{% endblock %}
+
+{% block content %}
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <a href="{{ url_for('admin.dashboard') }}" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-500">
+      ← Back to dashboard
+    </a>
+    <div class="mt-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-xl">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wide text-primary-600">Editing product</p>
+          <h1 class="text-3xl font-semibold text-slate-900">{{ product.name }}</h1>
+        </div>
+        <span class="rounded-full bg-primary-100 px-3 py-1 text-xs font-semibold text-primary-600">ID {{ product.id }}</span>
+      </div>
+      <form method="post" class="mt-8 grid gap-4 sm:grid-cols-2">
+        {{ form.hidden_tag() }}
+        <div class="sm:col-span-2">
+          {{ form.name.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.name(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div>
+          {{ form.slug.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.slug(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm lowercase focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div>
+          {{ form.category.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.category(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div>
+          {{ form.price.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.price(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div>
+          {{ form.stock.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.stock(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div class="sm:col-span-2">
+          {{ form.image_url.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.image_url(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div>
+          {{ form.germination_days.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.germination_days(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div>
+          {{ form.sun_exposure.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.sun_exposure(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div>
+          {{ form.difficulty.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.difficulty(class_='mt-1 w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div class="flex items-center gap-3">
+          {{ form.is_featured(class_='h-5 w-5 rounded border border-slate-300 text-primary-500 focus:ring-primary-400') }}
+          {{ form.is_featured.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+        </div>
+        <div class="sm:col-span-2">
+          {{ form.description.label(class_='text-xs font-semibold uppercase tracking-wide text-slate-500') }}
+          {{ form.description(class_='mt-1 min-h-[120px] w-full rounded-2xl border border-slate-200 px-4 py-2 text-sm focus:border-primary-400 focus:outline-none') }}
+        </div>
+        <div class="sm:col-span-2 flex flex-wrap gap-3">
+          <button type="submit" class="rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-slate-900 shadow hover:bg-primary-400 transition">
+            {{ form.submit.label.text }}
+          </button>
+          <form method="post" action="{{ url_for('admin.delete_product', slug=product.slug) }}" onsubmit="return confirm('Remove this product from the catalog?');" class="inline-flex">
+            <button type="submit" class="rounded-full border border-rose-200 px-6 py-3 text-sm font-semibold text-rose-500 hover:bg-rose-50 transition">
+              Delete product
+            </button>
+          </form>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}
