@@ -1,0 +1,177 @@
+[
+  {
+    "id": "martis-exp-meta",
+    "hero_id": "martis",
+    "name": "EXP Lane Bruiser",
+    "role": "Fighter",
+    "lane": "EXP",
+    "items": [
+      {"id": "warrior-boots", "name": "Warrior Boots"},
+      {"id": "bloodlust-axe", "name": "Bloodlust Axe"},
+      {"id": "war-axe", "name": "War Axe"},
+      {"id": "dominance-ice", "name": "Dominance Ice"},
+      {"id": "immortality", "name": "Immortality"},
+      {"id": "malefic-roar", "name": "Malefic Roar"}
+    ],
+    "emblem": {
+      "tree": "Assassin",
+      "talents": ["Agility", "Invasion", "Killing Spree"]
+    },
+    "spell": {"id": "flicker", "name": "Flicker"},
+    "source_name": "Mock Analyst Team",
+    "source_url": "https://example.com/martis-exp-guide",
+    "is_meta": true,
+    "category": "meta",
+    "notes": "Standard sustain build for lane duels and frontline dives."
+  },
+  {
+    "id": "martis-jungle-offmeta",
+    "hero_id": "martis",
+    "name": "Jungle Burst",
+    "role": "Assassin",
+    "lane": "Jungle",
+    "items": [
+      {"id": "tough-boots", "name": "Tough Boots"},
+      {"id": "hunter-strike", "name": "Hunter Strike"},
+      {"id": "blade-despair", "name": "Blade of Despair"},
+      {"id": "endless-battle", "name": "Endless Battle"},
+      {"id": "malefic-roar", "name": "Malefic Roar"},
+      {"id": "immortality", "name": "Immortality"}
+    ],
+    "emblem": {
+      "tree": "Assassin",
+      "talents": ["Agility", "Invasion", "High and Dry"]
+    },
+    "spell": {"id": "retribution", "name": "Retribution"},
+    "source_name": "Jungle Theorycraft",
+    "source_url": null,
+    "is_meta": false,
+    "category": "off_meta",
+    "notes": "Greedy burst path when picked as a pocket jungle carry."
+  },
+  {
+    "id": "brody-gold-meta",
+    "hero_id": "brody",
+    "name": "Gold Lane Burst",
+    "role": "Marksman",
+    "lane": "Gold",
+    "items": [
+      {"id": "swift-boots", "name": "Swift Boots"},
+      {"id": "blade-despair", "name": "Blade of Despair"},
+      {"id": "malefic-roar", "name": "Malefic Roar"},
+      {"id": "hunter-strike", "name": "Hunter Strike"},
+      {"id": "sea-halberd", "name": "Sea Halberd"},
+      {"id": "immortality", "name": "Immortality"}
+    ],
+    "emblem": {
+      "tree": "Marksman",
+      "talents": ["Agility", "Weapon Master", "Quantum Charge"]
+    },
+    "spell": {"id": "flicker", "name": "Flicker"},
+    "source_name": "Ranked Insights",
+    "source_url": "https://example.com/brody-gold",
+    "is_meta": true,
+    "category": "meta",
+    "notes": "High burst marksman route prioritising crit and shred."
+  },
+  {
+    "id": "brody-mid-situational",
+    "hero_id": "brody",
+    "name": "Mid Lane Flex",
+    "role": "Marksman",
+    "lane": "Mid",
+    "items": [
+      {"id": "tough-boots", "name": "Tough Boots"},
+      {"id": "endless-battle", "name": "Endless Battle"},
+      {"id": "brute-force", "name": "Brute Force Breastplate"},
+      {"id": "hunter-strike", "name": "Hunter Strike"},
+      {"id": "thunder-belt", "name": "Thunder Belt"},
+      {"id": "immortality", "name": "Immortality"}
+    ],
+    "emblem": {
+      "tree": "Support",
+      "talents": ["Agility", "Pull Yourself Together", "Focusing Mark"]
+    },
+    "spell": {"id": "sprint", "name": "Sprint"},
+    "source_name": "Scrim Lab",
+    "source_url": null,
+    "is_meta": false,
+    "category": "situational",
+    "notes": "Utility-focused setup when Brody flexes mid for early pressure."
+  },
+  {
+    "id": "selena-mid-meta",
+    "hero_id": "selena",
+    "name": "Mid Lane Assassin",
+    "role": "Assassin",
+    "lane": "Mid",
+    "items": [
+      {"id": "arcane-boots", "name": "Arcane Boots"},
+      {"id": "calamity-reaper", "name": "Calamity Reaper"},
+      {"id": "genius-wand", "name": "Genius Wand"},
+      {"id": "holy-crystal", "name": "Holy Crystal"},
+      {"id": "divine-glaive", "name": "Divine Glaive"},
+      {"id": "blood-wings", "name": "Blood Wings"}
+    ],
+    "emblem": {
+      "tree": "Mage",
+      "talents": ["Flow", "Observation", "Magic Worship"]
+    },
+    "spell": {"id": "flicker", "name": "Flicker"},
+    "source_name": "Tournament Hub",
+    "source_url": "https://example.com/selena-mid",
+    "is_meta": true,
+    "category": "meta",
+    "notes": "Standard pick build for aggressive mid control."
+  },
+  {
+    "id": "tigreal-roam-meta",
+    "hero_id": "tigreal",
+    "name": "Frontline Control",
+    "role": "Tank",
+    "lane": "Roam",
+    "items": [
+      {"id": "tough-boots", "name": "Tough Boots"},
+      {"id": "dominance-ice", "name": "Dominance Ice"},
+      {"id": "antique-cuirass", "name": "Antique Cuirass"},
+      {"id": "immortality", "name": "Immortality"},
+      {"id": "oracle", "name": "Oracle"},
+      {"id": "guardian-helmet", "name": "Guardian Helmet"}
+    ],
+    "emblem": {
+      "tree": "Tank",
+      "talents": ["Firmness", "Tenacity", "Concussive Blast"]
+    },
+    "spell": {"id": "flicker", "name": "Flicker"},
+    "source_name": "Support Ops",
+    "source_url": null,
+    "is_meta": true,
+    "category": "meta",
+    "notes": "Reliable engage sequence for coordinated teams."
+  },
+  {
+    "id": "faramis-roam-meta",
+    "hero_id": "faramis",
+    "name": "Roaming Resurrection",
+    "role": "Support",
+    "lane": "Roam",
+    "items": [
+      {"id": "tough-boots", "name": "Tough Boots"},
+      {"id": "dominance-ice", "name": "Dominance Ice"},
+      {"id": "fleeting-time", "name": "Fleeting Time"},
+      {"id": "enchant-talisman", "name": "Enchanted Talisman"},
+      {"id": "immortality", "name": "Immortality"},
+      {"id": "antique-cuirass", "name": "Antique Cuirass"}
+    ],
+    "emblem": {
+      "tree": "Support",
+      "talents": ["Agility", "Pull Yourself Together", "Focusing Mark"]
+    },
+    "spell": {"id": "revitalize", "name": "Revitalize"},
+    "source_name": "Pro Playbook",
+    "source_url": "https://example.com/faramis-support",
+    "is_meta": true,
+    "category": "meta",
+    "notes": "Maximise ultimate uptime for resurrection plays."
+  }
+]

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Hero Roster{% endblock %}
+{% block content %}
+<section class="section">
+  <h1>Hero Roster</h1>
+  <p class="section__subtitle">Search heroes by name, filter by role or lane, and tap to view build details.</p>
+  <div class="filters">
+    <label>
+      <span>Search</span>
+      <input type="text" id="search" placeholder="Type a hero name" />
+    </label>
+    <label>
+      <span>Role</span>
+      <select id="role">
+        <option value="">All roles</option>
+        {% for role in roles %}
+        <option value="{{ role }}">{{ role }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>
+      <span>Lane</span>
+      <select id="lane">
+        <option value="">All lanes</option>
+        {% for lane in lanes %}
+        <option value="{{ lane }}">{{ lane }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </div>
+  <div id="hero-grid" class="hero-grid">
+    {% for hero in heroes %}
+    <article class="hero-card" data-role="{{ hero.primary_role }}" data-lanes="{{ hero.recommended_lanes | join(',') }}" data-name="{{ hero.name }}">
+      <a href="/heroes/{{ hero.id }}">
+        {% if hero.portrait %}
+        <img src="{{ hero.portrait }}" alt="{{ hero.name }} portrait" loading="lazy" />
+        {% endif %}
+        <h2>{{ hero.name }}</h2>
+        <p class="hero-card__meta">{{ hero.primary_role }} • {{ hero.recommended_lanes | join(', ') }}</p>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<script>
+  const searchInput = document.getElementById('search');
+  const roleFilter = document.getElementById('role');
+  const laneFilter = document.getElementById('lane');
+  const cards = Array.from(document.querySelectorAll('.hero-card'));
+
+  function matchesFilters(card) {
+    const name = card.dataset.name.toLowerCase();
+    const role = card.dataset.role;
+    const lanes = card.dataset.lanes.split(',');
+    const searchTerm = searchInput.value.toLowerCase();
+    const roleValue = roleFilter.value;
+    const laneValue = laneFilter.value;
+
+    const matchesSearch = !searchTerm || name.includes(searchTerm);
+    const matchesRole = !roleValue || role === roleValue;
+    const matchesLane = !laneValue || lanes.includes(laneValue);
+
+    return matchesSearch && matchesRole && matchesLane;
+  }
+
+  function updateFilters() {
+    cards.forEach((card) => {
+      card.style.display = matchesFilters(card) ? '' : 'none';
+    });
+  }
+
+  searchInput.addEventListener('input', updateFilters);
+  roleFilter.addEventListener('change', updateFilters);
+  laneFilter.addEventListener('change', updateFilters);
+</script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Tier Lists{% endblock %}
+{% block content %}
+<section class="section">
+  <h1>Tier Lists</h1>
+  <p class="section__subtitle">Pick a role and lane to view the curated tier rankings.</p>
+  <div class="filters">
+    <label>
+      <span>Role</span>
+      <select id="tier-role">
+        {% for role in index.roles %}
+        <option value="{{ role }}">{{ role }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>
+      <span>Lane</span>
+      <select id="tier-lane">
+        {% for lane in index.lanes %}
+        <option value="{{ lane }}">{{ lane }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </div>
+  <div id="tier-container" class="tier-container"></div>
+</section>
+<script>
+  const tierData = {{ index.lookup | tojson }};
+  const roleSelect = document.getElementById('tier-role');
+  const laneSelect = document.getElementById('tier-lane');
+  const container = document.getElementById('tier-container');
+
+  function renderTiers() {
+    const role = roleSelect.value;
+    const lane = laneSelect.value;
+    const groups = tierData[role]?.[lane] || [];
+    container.innerHTML = '';
+
+    groups.forEach((group) => {
+      const section = document.createElement('section');
+      section.className = 'tier-group';
+      section.innerHTML = `<h2>Tier ${group.tier}</h2>`;
+      const list = document.createElement('div');
+      list.className = 'tier-group__heroes';
+      group.heroes.forEach((hero) => {
+        const card = document.createElement('article');
+        card.className = 'hero-pill';
+        card.innerHTML = `
+          <a href="/heroes/${hero.hero_id}">
+            ${hero.icon ? `<img src="${hero.icon}" alt="${hero.hero_name} icon" loading="lazy" />` : ''}
+            <span>${hero.hero_name}</span>
+          </a>`;
+        list.appendChild(card);
+      });
+      section.appendChild(list);
+      container.appendChild(section);
+    });
+  }
+
+  roleSelect.addEventListener('change', renderTiers);
+  laneSelect.addEventListener('change', renderTiers);
+  renderTiers();
+</script>
+{% endblock %}
