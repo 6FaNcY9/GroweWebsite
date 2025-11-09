@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Mobile Legends Helper{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Mobile Legends: Bang Bang Companion</h1>
+  <p>
+    Browse up-to-date tier lists, explore the full hero roster, and inspect recommended builds.
+    Everything runs in the browser and pulls data from a Python FastAPI backend.
+  </p>
+  <div class="hero__actions">
+    <a class="button" href="/tier-list">View Tier Lists</a>
+    <a class="button secondary" href="/heroes">Browse Heroes</a>
+  </div>
+</section>
+<section class="feature-grid">
+  <article>
+    <h2>Tier Lists</h2>
+    <p>Filter by role and lane to see which heroes dominate every position.</p>
+  </article>
+  <article>
+    <h2>Hero Builds</h2>
+    <p>Each hero exposes meta, off-meta, and situational builds sourced from curated data.</p>
+  </article>
+  <article>
+    <h2>API-Ready</h2>
+    <p>Swap the mock providers with the official Mobile Legends API by changing a single environment variable.</p>
+  </article>
+</section>
+{% endblock %}

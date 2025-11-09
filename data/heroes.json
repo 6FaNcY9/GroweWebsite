@@ -1,0 +1,57 @@
+{
+  "martis": {
+    "id": "martis",
+    "name": "Martis",
+    "title": "Ashura's Wrath",
+    "description": "A durable fighter who excels at shredding through clustered opponents with his spinning blades.",
+    "primary_role": "Fighter",
+    "secondary_roles": ["Assassin"],
+    "recommended_lanes": ["EXP", "Jungle"],
+    "difficulty": "Medium",
+    "portrait": "https://cdn.moba.garena.com/mobile-legends/martis-cover.jpg"
+  },
+  "brody": {
+    "id": "brody",
+    "name": "Brody",
+    "title": "The Lone Star",
+    "description": "Marksman burst damage specialist with strong pick potential thanks to high mobility and stun combos.",
+    "primary_role": "Marksman",
+    "secondary_roles": ["Assassin"],
+    "recommended_lanes": ["Gold", "Mid"],
+    "difficulty": "High",
+    "portrait": "https://cdn.moba.garena.com/mobile-legends/brody-cover.jpg"
+  },
+  "selena": {
+    "id": "selena",
+    "name": "Selena",
+    "title": "Abyssal Witch",
+    "description": "Hybrid mage/assassin who sets ambushes with abyssal traps and deadly stuns.",
+    "primary_role": "Assassin",
+    "secondary_roles": ["Mage"],
+    "recommended_lanes": ["Mid", "Jungle"],
+    "difficulty": "High",
+    "portrait": "https://cdn.moba.garena.com/mobile-legends/selena-cover.jpg"
+  },
+  "tigreal": {
+    "id": "tigreal",
+    "name": "Tigreal",
+    "title": "Warrior of Dawn",
+    "description": "Classic tank initiator with crowd-control combos and strong peel tools.",
+    "primary_role": "Tank",
+    "secondary_roles": ["Support"],
+    "recommended_lanes": ["Roam"],
+    "difficulty": "Low",
+    "portrait": "https://cdn.moba.garena.com/mobile-legends/tigreal-cover.jpg"
+  },
+  "faramis": {
+    "id": "faramis",
+    "name": "Faramis",
+    "title": "Alchemist",
+    "description": "Support mage who excels at resurrection plays and disruptive crowd control.",
+    "primary_role": "Support",
+    "secondary_roles": ["Mage"],
+    "recommended_lanes": ["Roam", "Mid"],
+    "difficulty": "Medium",
+    "portrait": "https://cdn.moba.garena.com/mobile-legends/faramis-cover.jpg"
+  }
+}

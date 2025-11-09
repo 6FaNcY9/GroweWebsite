@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}{{ hero.name }} Builds{% endblock %}
+{% block content %}
+<section class="section hero-detail">
+  <header class="hero-detail__header">
+    {% if hero.portrait %}
+    <img src="{{ hero.portrait }}" alt="{{ hero.name }} portrait" loading="lazy" />
+    {% endif %}
+    <div>
+      <h1>{{ hero.name }}</h1>
+      {% if hero.title %}<p class="hero-detail__title">{{ hero.title }}</p>{% endif %}
+      <p class="hero-detail__meta">{{ hero.primary_role }} • {{ hero.recommended_lanes | join(', ') }}</p>
+      {% if hero.difficulty %}<p class="hero-detail__difficulty">Difficulty: {{ hero.difficulty }}</p>{% endif %}
+      {% if hero.description %}<p class="hero-detail__description">{{ hero.description }}</p>{% endif %}
+    </div>
+  </header>
+
+  {% macro render_builds(label, builds) %}
+    {% if builds %}
+    <section class="build-group">
+      <h2>{{ label }}</h2>
+      {% for build in builds %}
+      <article class="build-card">
+        <header>
+          <h3>{{ build.name }}</h3>
+          <p class="build-card__meta">{{ build.role }} • {{ build.lane }}</p>
+        </header>
+        <div class="build-card__items">
+          {% for item in build.items %}
+          <span class="pill">{{ item.name }}</span>
+          {% endfor %}
+        </div>
+        <div class="build-card__extras">
+          <div>
+            <strong>Emblem:</strong>
+            <span>{{ build.emblem.tree }}</span>
+            <small>{{ build.emblem.talents | join(', ') }}</small>
+          </div>
+          <div>
+            <strong>Spell:</strong> <span>{{ build.spell.name }}</span>
+          </div>
+        </div>
+        {% if build.notes %}<p class="build-card__notes">{{ build.notes }}</p>{% endif %}
+        {% if build.source_name %}
+        <p class="build-card__source">Source: {% if build.source_url %}<a href="{{ build.source_url }}" target="_blank" rel="noopener">{{ build.source_name }}</a>{% else %}{{ build.source_name }}{% endif %}</p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+  {% endmacro %}
+
+  {{ render_builds('Meta Builds', hero.builds.meta_builds) }}
+  {{ render_builds('Off-meta Builds', hero.builds.off_meta_builds) }}
+  {{ render_builds('Situational Builds', hero.builds.situational_builds) }}
+</section>
+{% endblock %}

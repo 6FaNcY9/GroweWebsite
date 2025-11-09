@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}ML Helper{% endblock %}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-header__brand">Mobile Legends Helper</div>
+      <nav class="app-nav">
+        <a href="/">Home</a>
+        <a href="/tier-list">Tier Lists</a>
+        <a href="/heroes">Heroes</a>
+      </nav>
+    </header>
+    <main class="app-main">
+      {% block content %}{% endblock %}
+    </main>
+    <footer class="app-footer">
+      Data sourced from mock files and optional Mobile Legends API endpoints.
+    </footer>
+  </body>
+</html>
